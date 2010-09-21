@@ -1,6 +1,9 @@
 /*
 wth??
-Im TISS das Curriculum aufmachen, den JS-Code mit firebug ausführen, dann in einem neuen Tab die Zeugnisübersicht (https://tiss.tuwien.ac.at/graduation/certificates.xhtml) aufrufen, die Tabelle markieren, "view Source" und den Source in die Textbox ganz unten auf der Seite kopieren.
+* Im TISS das Curriculum aufmachen,
+* den bookmarklet-code ausführen (entweder in die kommandozeile pasten oder als bookmarklet)
+* in einem neuen Tab die Zeugnisübersicht (https://tiss.tuwien.ac.at/graduation/certificates.xhtml) aufrufen,
+  die Tabelle markieren, "view Source" und den Source in die neu erschienene Textbox ganz oben auf der Seite kopieren.
 
 bookmarklet:
 
