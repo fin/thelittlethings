@@ -60,7 +60,7 @@ try {
 	if($("lvachecker_othertable")) {
 		$("lvachecker_othertable").parentNode.removeChild($("lvachecker_othertable"));
 	}
-}catch(var e) {
+}catch(e) {
 }
 var othertbl = document.createElement("textarea");
 othertbl.id="lvachecker_othertable";
