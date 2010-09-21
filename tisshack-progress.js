@@ -33,7 +33,7 @@ function lvachecker_update_results() {
 		othertable.id = "lvachecker_othertable_lol";
 
 		var html = document.querySelectorAll("textarea#lvachecker_othertable")[0].value;
-		if(html.indexOf('table')<0) {
+		if(html.indexOf('<table')<0) {
 			html = "<table>"+html+"</html>";
 		}
 		othertable.innerHTML=html;
