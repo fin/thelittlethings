@@ -65,5 +65,5 @@ try {
 var othertbl = document.createElement("textarea");
 othertbl.id="lvachecker_othertable";
 othertbl.onblur = lvachecker_update_results;
-document.body.appendChild(othertbl);
+document.getElementById('contentInner').insertBefore(othertbl,document.getElementById('contentInner').firstChild)
 
