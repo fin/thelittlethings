@@ -15,7 +15,7 @@ Korrektur: neben den Fächern, in denen man eine Prüfung abgelegt hat.
 
 */
 
-var $ = document.getElementById;
+$ = document.getElementById;
 
 function lvachecker_update_results() {
         console.log("running");
