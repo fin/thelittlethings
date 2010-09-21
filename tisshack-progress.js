@@ -19,7 +19,7 @@ $ = document.getElementById;
 
 function lvachecker_update_results() {
         console.log("running");
-	var set = $$('td a');
+	var set = document.querySelectorAll('td a');
 	for(i=0;i<set.length;i++) {
 		var x = set[i];
 		var y = x.parentNode.parentNode.parentNode.parentNode;
@@ -32,13 +32,13 @@ function lvachecker_update_results() {
 		var othertable = document.createElement("div");
 		othertable.id = "lvachecker_othertable_lol";
 
-		var html = $$("textarea#lvachecker_othertable")[0].value;
+		var html = document.querySelectorAll("textarea#lvachecker_othertable")[0].value;
 		if(html.indexOf('table')<0) {
 			html = "<table>"+html+"</html>";
 		}
 		othertable.innerHTML=html;
 		document.body.appendChild(othertable);
-		var set = $$("#lvachecker_othertable_lol tr");
+		var set = document.querySelectorAll("#lvachecker_othertable_lol tr");
 		for(var j=0;j<set.length;j++) {
 			var x = set[j];
 			if(x.className.indexOf('ui-datatable-first')>-1) {continue;}
