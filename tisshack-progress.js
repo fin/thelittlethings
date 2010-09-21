@@ -2,12 +2,20 @@
 wth??
 Im TISS das Curriculum aufmachen, den JS-Code mit firebug ausführen, dann in einem neuen Tab die Zeugnisübersicht (https://tiss.tuwien.ac.at/graduation/certificates.xhtml) aufrufen, die Tabelle markieren, "view Source" und den Source in die Textbox ganz unten auf der Seite kopieren.
 
+bookmarklet:
+
+javascript:(function(){_my_script=document.createElement('SCRIPT');_my_script.type='text/javascript';_my_script.src='http://github.com/fin/thelittlethings/raw/master/tisshack-progress.js';document.getElementsByTagName('head')[0].appendChild(_my_script);})();
+
+
+
+
 Es erscheinen magisch Häkchen neben den abgeschlossenen Fächern.
 
 Korrektur: neben den Fächern, in denen man eine Prüfung abgelegt hat.
 
 */
 
+var $ = document.getElementById;
 
 function lvachecker_update_results() {
         console.log("running");
