@@ -56,8 +56,11 @@ function lvachecker_update_results() {
 		console.log(jQuery(".nodeTableNameColumn:contains("+x+")").prepend("<span class='lvachecker' style='color: red; font-weight: bold;'>✓</span>"));
 	}
 }
-if($("lvachecker_othertable")) {
-	$("lvachecker_othertable").parentNode.removeChild($("lvachecker_othertable"));
+try {
+	if($("lvachecker_othertable")) {
+		$("lvachecker_othertable").parentNode.removeChild($("lvachecker_othertable"));
+	}
+}catch(var e) {
 }
 var othertbl = document.createElement("textarea");
 othertbl.id="lvachecker_othertable";
