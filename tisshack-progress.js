@@ -9,7 +9,7 @@ bookmarklet:
 
 javascript:(function(){_my_script=document.createElement('SCRIPT');_my_script.type='text/javascript';_my_script.src='http://github.com/fin/thelittlethings/raw/master/tisshack-progress.js';document.getElementsByTagName('head')[0].appendChild(_my_script);})();
 
-
+javascript:(function(){_my_script=document.createElement('SCRIPT');_my_script.type='text/javascript';_my_script.src='file:///Users/fin/Projects/thelittlethings/tisshack-progress.js';document.getElementsByTagName('head')[0].appendChild(_my_script);})();
 
 
 Es erscheinen magisch Häkchen neben den abgeschlossenen Fächern.
@@ -32,16 +32,13 @@ function lvachecker_update_results() {
 	jQuery('span.lvachecker').remove();
 	function extractLVAs() {
 		var result = [];
-		var othertable = document.createElement("div");
-		othertable.id = "lvachecker_othertable_lol";
-
-		var html = document.querySelectorAll("textarea#lvachecker_othertable")[0].value;
-		if(html.indexOf('<table')<0) {
-			html = "<table>"+html+"</html>";
-		}
-		othertable.innerHTML=html;
-		document.body.appendChild(othertable);
-		var set = document.querySelectorAll("#lvachecker_othertable_lol tr");
+		var w2 = document.querySelector("#lvachecker_certs iframe").contentWindow;
+		console.log("lol?");
+		console.log(w2);
+		console.log(w2.document);
+		console.log(w2.document.querySelectorAll);
+		var set = w2.document.querySelectorAll("table tr");
+		console.log("lol!");
 		for(var j=0;j<set.length;j++) {
 			var x = set[j];
 			if(x.className.indexOf('ui-datatable-first')>-1) {continue;}
@@ -49,7 +46,6 @@ function lvachecker_update_results() {
 				x.childNodes[1].childNodes[0].innerHTML+" "+x.childNodes[2].childNodes[0].innerHTML
 			);
 		}
-		othertable.parentNode.removeChild(othertable);
 		return result;
 	}
 	var lvas = extractLVAs();
@@ -60,13 +56,27 @@ function lvachecker_update_results() {
 	}
 }
 try {
-	if($("lvachecker_othertable")) {
-		$("lvachecker_othertable").parentNode.removeChild($("lvachecker_othertable"));
+	var x = document.getElementById("lvachecker_othertable");
+	if(x) {
+		x.parentNode.removeChild(x);
 	}
+	x = document.getElementById("lvachecker_certs");
+	if(x) {
+		x.parentNode.removeChild(x);
+	}
+
 }catch(e) {
 }
-var othertbl = document.createElement("textarea");
-othertbl.id="lvachecker_othertable";
-othertbl.onblur = lvachecker_update_results;
-document.getElementById('contentInner').insertBefore(othertbl,document.getElementById('contentInner').firstChild)
+var div = document.createElement("div");
+div.id = "lvachecker_certs";
+document.getElementById('contentInner').insertBefore(div,document.getElementById('contentInner').firstChild)
 
+var iframe = document.createElement("iframe");
+iframe.src = "https://tiss.tuwien.ac.at/graduation/certificates.xhtml?locale=de";
+iframe.name = "lvachecker_certs";
+div.appendChild(iframe);
+
+var btn = document.createElement("button");
+btn.onclick = lvachecker_update_results;
+btn.innerHTML = "go!";
+div.appendChild(btn);
