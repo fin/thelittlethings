@@ -2,15 +2,11 @@
 wth??
 * Im TISS das Curriculum aufmachen,
 * den bookmarklet-code ausführen (entweder in die kommandozeile pasten oder als bookmarklet)
-* in einem neuen Tab die Zeugnisübersicht (https://tiss.tuwien.ac.at/graduation/certificates.xhtml) aufrufen,
-  die Tabelle markieren und das fenster "view selection source" in die neu erschienene Textbox ganz oben auf der Curriculum-Seite kopieren.
+* wenn die zeugnisse geladen sind, go drücken.
 
 bookmarklet:
 
 javascript:(function(){_my_script=document.createElement('SCRIPT');_my_script.type='text/javascript';_my_script.src='http://github.com/fin/thelittlethings/raw/master/tisshack-progress.js';document.getElementsByTagName('head')[0].appendChild(_my_script);})();
-
-javascript:(function(){_my_script=document.createElement('SCRIPT');_my_script.type='text/javascript';_my_script.src='file:///Users/fin/Projects/thelittlethings/tisshack-progress.js';document.getElementsByTagName('head')[0].appendChild(_my_script);})();
-
 
 Es erscheinen magisch Häkchen neben den abgeschlossenen Fächern.
 
@@ -69,6 +65,9 @@ try {
 }
 var div = document.createElement("div");
 div.id = "lvachecker_certs";
+div.innerHTML = "<p>There will be a iFrame loading here, containing your certificates. When it's loaded, please press the Button.\
+		 as a side effect of running this, the language of your TISS might be changed to German. This is due to string matching issues. Sorry for that!</p>";
+
 document.getElementById('contentInner').insertBefore(div,document.getElementById('contentInner').firstChild)
 
 var iframe = document.createElement("iframe");
